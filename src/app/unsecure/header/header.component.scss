@@ -1,0 +1,14 @@
+.nav-link a,
+.nav-link {
+list-style: none;
+text-decoration: none;
+display: flex;
+align-content: space-between;
+font-size: medium;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+margin-right: 5px;
+}
+
+#header {
+    background-color: rgba(133, 193, 221, 0.933);
+}
