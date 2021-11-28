@@ -9,15 +9,20 @@ import { FooterComponent } from './common/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './unsecure/header/header.component';
-import { CardviewComponent } from './unsecure/cardview/cardview.component';
 import { MatCardModule } from '@angular/material/card'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatInputModule } from '@angular/material/input'
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AboutusComponent } from './unsecure/aboutus/aboutus.component';
+import { ServicesComponent } from './unsecure/services/services.component';
+import { ContactusComponent } from './unsecure/contactus/contactus.component';
+import { SignupComponent } from './unsecure/signup/signup.component';
 
 
 
@@ -27,7 +32,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FooterComponent,
     LandingComponent,
     HeaderComponent,
-    CardviewComponent,
+    AboutusComponent,
+    ServicesComponent,
+    ContactusComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

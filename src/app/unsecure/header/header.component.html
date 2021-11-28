@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="sticky">
+<mat-toolbar id="header">
   <mat-toolbar-row fxLayoutAlign="space-between center">
     <div fxLayout="row">
       <button mat-button>
@@ -7,7 +7,7 @@
       </button>
     </div>
     <div *ngIf="!deviceXs">
-      <button mat-button *ngFor="let item of preloginMenu">
+      <button mat-button *ngFor="let item of preloginMenu" routerLink="{{item.path}}">
         {{ item.menuId | translate }}
       </button>
       <button mat-button [matMenuTriggerFor]="language">
@@ -26,7 +26,7 @@
 </mat-toolbar>
 <!-- Menu Items -->
 <mat-menu #menu="matMenu" fxLayoutAlign="end">
-  <button mat-menu-item *ngFor="let item of preloginMenu">
+  <button mat-menu-item *ngFor="let item of preloginMenu" routerLink="{{item.path}}">
     {{ item.menuId | translate }}
   </button>
 </mat-menu>

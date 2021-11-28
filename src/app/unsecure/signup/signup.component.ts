@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import { MyErrorStateMatcher } from './MyErrorStateMatcher';
-
-
+import {Router} from '@angular/router';
+import { MyErrorStateMatcher } from '../landing/MyErrorStateMatcher';
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   constructor(private router: Router) { }
 
@@ -32,5 +28,9 @@ export class LandingComponent implements OnInit {
       }else {
         alert("Invalid credentials");
       }
+    }
+
+    signup(): void {
+      this.router.navigate(["signup"]);
     }
 }
