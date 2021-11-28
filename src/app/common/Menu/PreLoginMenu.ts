@@ -1,25 +1,41 @@
 export class MENU {
 
-  static PRELOGIN_MENU=   [
-        {
+  static PRELOGIN_MENU=   {
+  "English": [
+          {
+              path: '/',
+              menuId: 'home'
+          },
+          {
+              path: '/services',
+              menuId: 'services'
+          },
+          {
+              path: '/aboutus',
+              menuId: 'aboutus'
+          },
+          {
+              path: '/contactus',
+              menuId: 'contactus'
+          }
+        ],
+  "Telugu": [
+          {
             path: '/',
-            menuName: 'Home',
             menuId: 'home'
-        },
-        {
-            path: '/services',
-            menuName: 'Services',
-            menuId: 'services'
-        },
-        {
-            path: '/aboutus',
-            menuName: 'About Us',
-            menuId: 'aboutus'
-        },
-        {
-            path: '/contactus',
-            menuName: 'Contact Us',
-            menuId: 'contactus'
-        }
-    ]
+          },
+          {
+              path: '/services',
+              menuId: 'services'
+          },
+          {
+              path: '/aboutus',
+              menuId: 'aboutus'
+          },
+          {
+              path: '/contactus',
+              menuId: 'contactus'
+          }
+        ]
+    }
 }

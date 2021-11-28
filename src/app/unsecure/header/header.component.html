@@ -1,7 +1,39 @@
-<div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="4px" id= "header">
-  <ul fxLayout="row" *ngFor="let menu of preloginMenu">
-    <li class="nav-link">
-      <a href="#" id="{{ menu.menuId }}">{{ menu.menuName }}</a>
-    </li>
-  </ul>
-</div>
+<mat-toolbar color="primary" class="sticky">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">{{logoName | translate}}</span>
+      </button>
+    </div>
+    <div *ngIf="!deviceXs">
+      <button mat-button *ngFor="let item of preloginMenu">
+        {{ item.menuId | translate }}
+      </button>
+      <button mat-button [matMenuTriggerFor]="language">
+        <mat-icon>language</mat-icon>
+      </button>
+    </div>
+    <div *ngIf="deviceXs" fxLayoutAlign="space-between end">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="language">
+        <mat-icon>language</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<!-- Menu Items -->
+<mat-menu #menu="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item *ngFor="let item of preloginMenu">
+    {{ item.menuId | translate }}
+  </button>
+</mat-menu>
+
+<!-- language Items -->
+<mat-menu #language="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
+    {{ lang }}
+  </button>
+</mat-menu>

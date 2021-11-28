@@ -1,0 +1,18 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+.content {
+    padding: 16px;
+    margin-top:60px;
+}
+.content > mat-card {
+    margin-bottom: 16px;
+}
+
+.sticky {
+  padding: 0px;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 10;
+}
