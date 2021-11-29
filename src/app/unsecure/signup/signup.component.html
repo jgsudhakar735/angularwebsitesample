@@ -1,13 +1,62 @@
 <div fxLayout="row"
 class="content"
 fxLayoutAlign="center"
-fxFlexFill>
+fxFlexFill
+fxLayout.xs="column">
   <div></div>
   <div fxFlex fxLayoutAlign="end center">
     <mat-card>
-      <mat-card-title> Login Page </mat-card-title>
+      <mat-card-title> SignUp Here </mat-card-title>
       <mat-card-content>
         <form class="example-form">
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Surname"
+              />
+              <mat-hint style="color: red;">Enter Your SurName!</mat-hint>
+              <mat-error
+                *ngIf="
+                  emailFormControl.hasError('email') &&
+                  !emailFormControl.hasError('required')
+                "
+              >
+                Please enter a Valid Surname
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Surname/FirstName <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="emailFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Last Name"
+              />
+              <mat-hint style="color: red;">Enter your Last Name!</mat-hint>
+              <mat-error
+                *ngIf="
+                  emailFormControl.hasError('email') &&
+                  !emailFormControl.hasError('required')
+                "
+              >
+                Please enter a valid Last Name
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Last Name <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
           <div>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Email</mat-label>
@@ -16,7 +65,7 @@ fxFlexFill>
                 matInput
                 [formControl]="emailFormControl"
                 [errorStateMatcher]="matcher"
-                placeholder="Ex. pat@example.com"
+                placeholder="Ex. id@domain.com/co.in"
               />
               <mat-hint style="color: red;">Enter Email Id!</mat-hint>
               <mat-error
@@ -35,6 +84,30 @@ fxFlexFill>
           <div>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Password</mat-label>
+              <input
+                type="text"
+                matInput
+                [formControl]="passwordFormControl"
+                [errorStateMatcher]="matcher"
+                placeholder="Password Please"
+              />
+              <mat-hint style="color: red;">Enter your Password!</mat-hint>
+              <mat-error
+                *ngIf="
+                  passwordFormControl.hasError('password') &&
+                  !passwordFormControl.hasError('required')
+                "
+              >
+                Please enter a valid Password
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Confirm Password</mat-label>
               <input
                 type="text"
                 matInput
