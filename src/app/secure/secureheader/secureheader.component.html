@@ -1,0 +1,31 @@
+<mat-toolbar id="header">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div fxLayout="row">
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">{{logoName | translate}}</span>
+      </button>
+    </div>
+    <div>
+      <button mat-button [matMenuTriggerFor]="user">
+        <mat-icon>person</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="language">
+        <mat-icon>language</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- language Items -->
+<mat-menu #language="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang)">
+    {{ lang }}
+  </button>
+</mat-menu>
+
+<!-- language Items -->
+<mat-menu #user="matMenu" fxLayoutAlign="end">
+  <button mat-menu-item> Change Password </button>
+  <button mat-menu-item> Logout </button>
+</mat-menu>

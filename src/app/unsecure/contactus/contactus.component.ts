@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusComponent implements OnInit {
 
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  message: string;
+
   constructor() { }
 
   ngOnInit(): void {

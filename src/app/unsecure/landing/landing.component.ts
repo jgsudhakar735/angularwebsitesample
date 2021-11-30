@@ -15,9 +15,6 @@ export class LandingComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  username: string;
-  password: string;
-
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
@@ -27,8 +24,8 @@ export class LandingComponent implements OnInit {
     }
 
     login() : void {
-      if(this.username == 'admin' && this.password == 'admin'){
-       this.router.navigate(["user"]);
+      if(this.emailFormControl.value == 'admin@jgs.com' && this.passwordFormControl.value == 'admin'){
+       this.router.navigate(["secure"]);
       }else {
         alert("Invalid credentials");
       }

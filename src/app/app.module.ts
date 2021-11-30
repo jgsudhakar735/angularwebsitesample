@@ -23,6 +23,11 @@ import { AboutusComponent } from './unsecure/aboutus/aboutus.component';
 import { ServicesComponent } from './unsecure/services/services.component';
 import { ContactusComponent } from './unsecure/contactus/contactus.component';
 import { SignupComponent } from './unsecure/signup/signup.component';
+import { LayoutComponent } from './unsecure/layout/layout.component';
+import { SecurelayoutComponent } from './secure/securelayout/securelayout.component';
+import { DashboardComponent } from './secure/dashboard/dashboard.component';
+import { SecureheaderComponent } from './secure/secureheader/secureheader.component';
+import { SecurenavComponent } from './secure/securenav/securenav.component';
 
 
 
@@ -36,6 +41,11 @@ import { SignupComponent } from './unsecure/signup/signup.component';
     ServicesComponent,
     ContactusComponent,
     SignupComponent,
+    LayoutComponent,
+    SecurelayoutComponent,
+    DashboardComponent,
+    SecureheaderComponent,
+    SecurenavComponent
   ],
   imports: [
     BrowserModule,
