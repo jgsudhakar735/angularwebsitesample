@@ -4,6 +4,8 @@ import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from './MyErrorStateMatcher';
 import { CREDENTIALS } from 'src/app/common/credentials/UserCredentials';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserServiceImpl } from '../../secure/users/serviceimpl/UserServiceImpl';
+import { UserDTO } from '../../secure/users/serviceimpl/UserDTO';
 
 
 @Component({
@@ -14,7 +16,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LandingComponent implements OnInit {
 
   constructor(private router: Router,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    private _userServiceImpl: UserServiceImpl) { }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
@@ -27,6 +30,9 @@ export class LandingComponent implements OnInit {
 
     login() : void {
       let isValid: boolean = false;
+     const userData:UserDTO = {email:this.emailFormControl.value, password: this.passwordFormControl.value};
+
+      this._userServiceImpl.save(userData);
       CREDENTIALS.LOGIN_USERS.map(userDetails => {
         if(userDetails.userId == this.emailFormControl.value &&
           userDetails.password == this.passwordFormControl.value) {
@@ -49,3 +55,7 @@ export class LandingComponent implements OnInit {
       });
     }
 }
+function userDto(userDto: any) {
+  throw new Error('Function not implemented.');
+}
+

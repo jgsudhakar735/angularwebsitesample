@@ -10,6 +10,7 @@ import { LandingComponent } from '../landing/landing.component';
 import { LayoutComponent } from '../layout/layout.component';
 import { HeaderComponent } from '../header/header.component';
 import { CustomMaterialModule } from 'src/app/common/Module/material.module';
+import { UserServiceImpl } from 'src/app/secure/users/serviceimpl/UserServiceImpl';
 
 
 @NgModule({
@@ -26,6 +27,9 @@ import { CustomMaterialModule } from 'src/app/common/Module/material.module';
     CommonModule,
     CustomMaterialModule,
     UnsecureRoutingModule
+  ],
+  providers: [
+    UserServiceImpl
   ]
 })
 export class UnsecureModule { }
