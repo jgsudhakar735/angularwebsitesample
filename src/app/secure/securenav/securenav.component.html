@@ -1,1 +1,12 @@
-<p>securenav works!</p>
+<div fxLayout="column" class="content">
+  <div fxFlexFill fxLayout="column">
+    <button
+      mat-button
+      *ngFor="let item of postloginMenu"
+      routerLink="{{ item.path }}"
+    >
+     <!-- <mat-icon>{{item.icon}} </mat-icon> -->
+      {{ item.menuId | translate }}
+    </button>
+  </div>
+</div>

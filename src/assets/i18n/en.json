@@ -3,5 +3,9 @@
       "services": "Services",
       "aboutus": "About Me",
       "contactus": "Contact Me",
-      "logoName": "JGSudhakar"
+      "logoName": "JGSudhakar",
+      "dashboard": "DashBoard",
+      "users": "Users",
+      "register": "Register",
+      "settings": "Settings"
   }

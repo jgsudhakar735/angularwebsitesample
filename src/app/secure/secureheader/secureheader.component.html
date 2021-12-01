@@ -26,6 +26,8 @@
 
 <!-- language Items -->
 <mat-menu #user="matMenu" fxLayoutAlign="end">
-  <button mat-menu-item> Change Password </button>
-  <button mat-menu-item> Logout </button>
+  <button mat-menu-item><mat-icon>cached</mat-icon> Change Password </button>
+  <button mat-menu-item (click)="logout()">
+  <mat-icon>power_settings_new</mat-icon>  Logout
+  </button>
 </mat-menu>

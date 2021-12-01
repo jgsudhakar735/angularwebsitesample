@@ -3,6 +3,7 @@ import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { MENU } from 'src/app/common/Menu/PreLoginMenu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-secureheader',
@@ -11,16 +12,17 @@ import { MENU } from 'src/app/common/Menu/PreLoginMenu';
 })
 export class SecureheaderComponent implements OnInit {
 
-  preloginMenu = MENU.PRELOGIN_MENU.English;
+  preloginMenu = MENU.POST_LOGIN_MENU.English;
 
-  languages = Object.keys(MENU.PRELOGIN_MENU)
+  languages = Object.keys(MENU.POST_LOGIN_MENU)
 
   logoName = 'logoName'
 
   mediaSub: Subscription;
   deviceXs: boolean;
 
-  constructor (public translate: TranslateService,public mediaObserver: MediaObserver) {
+  constructor (public translate: TranslateService,public mediaObserver: MediaObserver,
+    private router: Router) {
     translate.addLangs(['en', 'te']);
     translate.setDefaultLang('en');
     this.deviceXs = false;
@@ -42,6 +44,11 @@ export class SecureheaderComponent implements OnInit {
 
   changeLanguage(lang) {
     this.translate.use(lang == 'English' ? 'en': 'te');
+  }
+
+  logout() {
+    localStorage.setItem("isLoggedIn","false")
+    this.router.navigate([""]);
   }
 
 }

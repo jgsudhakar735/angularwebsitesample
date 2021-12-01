@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from './MyErrorStateMatcher';
+import { CREDENTIALS } from 'src/app/common/credentials/UserCredentials';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -13,7 +13,8 @@ import { MyErrorStateMatcher } from './MyErrorStateMatcher';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private _snackBar: MatSnackBar) { }
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
@@ -21,13 +22,30 @@ export class LandingComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
     ngOnInit() {
+      localStorage.setItem("isLoggedIn","false")
     }
 
     login() : void {
-      if(this.emailFormControl.value == 'admin@jgs.com' && this.passwordFormControl.value == 'admin'){
-       this.router.navigate(["secure"]);
+      let isValid: boolean = false;
+      CREDENTIALS.LOGIN_USERS.map(userDetails => {
+        if(userDetails.userId == this.emailFormControl.value &&
+          userDetails.password == this.passwordFormControl.value) {
+            isValid = true;
+          }
+      })
+
+      if(isValid){
+        localStorage.setItem("isLoggedIn","true")
+        this.router.navigate(["secure"]);
       }else {
-        alert("Invalid credentials");
+        localStorage.setItem("isLoggedIn","false")
+        this.openDailog("Invalid credentials","Ko");
       }
+    }
+
+    openDailog(message: string, action: string) {
+      this._snackBar.open(message,action, {
+        duration: 3000
+      });
     }
 }

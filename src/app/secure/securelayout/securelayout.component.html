@@ -1,14 +1,17 @@
-<div
-  fxLayout="column"
-  class="content"
-  fxLayoutAlign="center"
-  fxFlexFill
->
+<div fxLayout="column" class="content" fxLayoutAlign="center" fxFlexFill>
   <div>
     <app-secureheader></app-secureheader>
   </div>
-  <div fxFlex id="outletcontent">
-    <router-outlet></router-outlet>
+  <div fxFlex>
+    <div fxLayout="row" fxLayoutGap="10px" fxFlex fxLayoutAlign ="strech">
+      <div>
+        <app-securenav></app-securenav>
+      </div>
+      <div fxFlex fxLayoutAlign="start center">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+
   </div>
   <div>
     <app-footer></app-footer>
